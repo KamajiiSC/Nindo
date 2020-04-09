@@ -9,6 +9,7 @@ def attack(user):
 enemy = Character("John", 20)
 playerCharacter = Character(input("Who are you? "), 20)
 
-print(f"{playerCharacter.name} say hello to {enemy.name}")
+print(f"A man appears before {playerCharacter.name}. \"My name is {enemy.name}, prepare to fight!\"")
+
 
 #attack(enemy)
