@@ -4,8 +4,6 @@ class Character:
     self.health = health
 
 enemy = Character("John", 20)
-
 playerCharacter = Character(input("Who are you? "), 20)
-#userName = input("Who are you? ")
 
 print(f"{playerCharacter.name} say hello to {enemy.name}")
