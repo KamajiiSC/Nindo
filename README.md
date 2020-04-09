@@ -1,2 +1,2 @@
 # Nindo
-Ambitious(for me) Js game
+Text based python game
