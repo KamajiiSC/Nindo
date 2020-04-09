@@ -5,6 +5,10 @@ class Character:
 
 def attack(user):
   print(f"{user.name} swings their sword")
+  if user == playerCharacter:
+    enemy.health = enemy.health - 5
+  elif user == enemy:
+    playerCharacter.health = playerCharacter - 5
 
 enemy = Character("John", 20)
 playerCharacter = Character(input("Who are you? "), 20)
