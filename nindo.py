@@ -5,4 +5,4 @@ class Character:
 
 enemy = Character("John", 20)
 
-print("Hello world")
+print(f"Say hello to {enemy.name}")
