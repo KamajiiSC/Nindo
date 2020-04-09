@@ -5,4 +5,6 @@ class Character:
 
 enemy = Character("John", 20)
 
-print(f"Say hello to {enemy.name}")
+userName = input("Who are you? ")
+
+print(f"{userName} say hello to {enemy.name}")
