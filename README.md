@@ -1,2 +1,2 @@
 # Nindo
-Text based python game
+Text based java game
