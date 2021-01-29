@@ -1,13 +1,6 @@
 .header-title{
 	-fx-font-size: 36px;
-	-fx-padding: 0;
-	-fx-margin: 0;
 }
-.list-cell{
-	-fx-text-fill: black;
-	-fx-background-color: #fff;
-}
-.list-cell:selected{
-	-fx-background-color:gray;
-	-fx-width:5px;
+.menu-btn{
+	-fx-font-size: 24px;
 }
