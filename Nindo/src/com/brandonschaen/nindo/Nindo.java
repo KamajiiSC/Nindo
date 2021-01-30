@@ -50,12 +50,13 @@ public class Nindo extends Application{
 			MenuButton newGame = new MenuButton("New Game");
 			MenuButton loadGame = new MenuButton("Load Game");			
 			MenuButton options = new MenuButton("Options");			
+			MenuButton exit = new MenuButton("Exit");			
 			
-			gameMenu.getChildren().addAll(newGame, loadGame, options);
+			gameMenu.getChildren().addAll(newGame, loadGame, options, exit);
 			
 			VBox newMenu = new VBox(200);
 			newMenu.getChildren().addAll(sceneTitle, gameMenu);
-			newMenu.setTranslateX(500);
+			newMenu.setTranslateX(510);
 			newMenu.setTranslateY(200);
 			newMenu.setAlignment(Pos.CENTER);
 			
@@ -75,6 +76,13 @@ public class Nindo extends Application{
 			bg.setOpacity(0.5);
 			
 			getChildren().addAll(bg, btnContent);
+			
+			setOnMouseEntered(event -> {
+				bg.setFill(Color.BLACK);
+			});
+			setOnMouseExited(event -> {
+				bg.setFill(Color.LIGHTGRAY);
+			});
 		}
 	}
 	
