@@ -21,7 +21,7 @@ public class Nindo extends Application{
 
 	@Override
 	public void start( Stage primaryStage ) throws Exception {
-		Pane root = new Pane();
+		StackPane root = new StackPane();
 		root.setPrefSize(1200, 800);
 		
 		primaryStage.setTitle("Nindo");
@@ -29,6 +29,7 @@ public class Nindo extends Application{
 		mainMenu = new GameMenu();
 		
 		root.getChildren().addAll(mainMenu);
+		root.setAlignment(Pos.CENTER);
 		
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add("MainScene.css");
@@ -44,9 +45,6 @@ public class Nindo extends Application{
 			sceneTitle.setText("Nindo");
 			sceneTitle.getStyleClass().add("header-title");
 			
-			gameMenu.setTranslateX(10);
-			gameMenu.setTranslateY(20);
-			
 			MenuButton newGame = new MenuButton("New Game");
 			MenuButton loadGame = new MenuButton("Load Game");			
 			MenuButton options = new MenuButton("Options");			
@@ -60,8 +58,6 @@ public class Nindo extends Application{
 			
 			VBox newMenu = new VBox(200);
 			newMenu.getChildren().addAll(sceneTitle, gameMenu);
-			newMenu.setTranslateX(510);
-			newMenu.setTranslateY(200);
 			newMenu.setAlignment(Pos.CENTER);
 			
 			getChildren().addAll(newMenu);
