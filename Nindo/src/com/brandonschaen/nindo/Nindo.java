@@ -17,11 +17,13 @@ import javafx.stage.Stage;
 
 public class Nindo extends Application{
 	private GameMenu mainMenu;
+	private static GameContainer gameContainer;
 	private static Text sceneTitle;
+	private static StackPane root;
 
 	@Override
 	public void start( Stage primaryStage ) throws Exception {
-		StackPane root = new StackPane();
+		root = new StackPane();
 		root.setPrefSize(1200, 800);
 		
 		primaryStage.setTitle("Nindo");
@@ -38,6 +40,19 @@ public class Nindo extends Application{
 		primaryStage.show();
 	}
 	
+	private static class GameContainer extends Parent {
+		public GameContainer () {
+			VBox mainContainer = new VBox(50);
+			sceneTitle = new Text();
+			sceneTitle.setText("Nindo");
+			sceneTitle.getStyleClass().add("header-title");
+			sceneTitle.setTranslateY(-700);
+			
+			mainContainer.getChildren().addAll(sceneTitle);
+			getChildren().addAll(mainContainer);
+		}
+	}
+	
 	private static class GameMenu extends Parent {
 		public GameMenu() {
 			VBox gameMenu = new VBox(10);
@@ -49,6 +64,12 @@ public class Nindo extends Application{
 			MenuButton loadGame = new MenuButton("Load Game");			
 			MenuButton options = new MenuButton("Options");			
 			MenuButton exit = new MenuButton("Exit");		
+			
+			newGame.setOnMouseClicked(event -> {
+				gameContainer = new GameContainer();
+				root.getChildren().clear();
+				root.getChildren().addAll(gameContainer);
+			});
 			
 			exit.setOnMouseClicked(event -> {
 				System.exit(0);
