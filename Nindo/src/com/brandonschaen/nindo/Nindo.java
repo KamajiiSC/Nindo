@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 public class Nindo extends Application{
 	private GameMenu mainMenu;
 	private static GameContainer gameContainer;
+	private static CharacterCreator characterCreator;
 	private static Text sceneTitle;
 	private static StackPane root;
 
@@ -40,15 +41,31 @@ public class Nindo extends Application{
 		primaryStage.show();
 	}
 	
+	private static class CharacterCreator extends Parent {
+		public CharacterCreator() {
+			VBox creatorContainer = new VBox(10);
+			
+			Text introPrompt = new Text();
+			introPrompt.setText("Welcome to the world of Nindo. \n To begin, what is your name?");
+			
+			creatorContainer.getChildren().addAll(introPrompt);
+			getChildren().addAll(creatorContainer);
+		}
+	}
+	
 	private static class GameContainer extends Parent {
 		public GameContainer () {
-			VBox mainContainer = new VBox(50);
+			BorderPane mainContainer = new BorderPane();
+			mainContainer.setPrefSize(1200, 800);
+			characterCreator = new CharacterCreator();
 			sceneTitle = new Text();
 			sceneTitle.setText("Nindo");
 			sceneTitle.getStyleClass().add("header-title");
-			sceneTitle.setTranslateY(-700);
+//			Rectangle bg = new Rectangle(1000, 600);
 			
-			mainContainer.getChildren().addAll(sceneTitle);
+			mainContainer.setTop(sceneTitle);
+			mainContainer.setCenter(characterCreator);
+			BorderPane.setAlignment(sceneTitle, Pos.CENTER);
 			getChildren().addAll(mainContainer);
 		}
 	}
