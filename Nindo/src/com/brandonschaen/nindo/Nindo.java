@@ -50,7 +50,11 @@ public class Nindo extends Application{
 			MenuButton newGame = new MenuButton("New Game");
 			MenuButton loadGame = new MenuButton("Load Game");			
 			MenuButton options = new MenuButton("Options");			
-			MenuButton exit = new MenuButton("Exit");			
+			MenuButton exit = new MenuButton("Exit");		
+			
+			exit.setOnMouseClicked(event -> {
+				System.exit(0);
+			});
 			
 			gameMenu.getChildren().addAll(newGame, loadGame, options, exit);
 			
@@ -83,6 +87,11 @@ public class Nindo extends Application{
 			setOnMouseExited(event -> {
 				bg.setFill(Color.LIGHTGRAY);
 			});
+		}
+
+		public void onMouseClicked(Object object) {
+			// TODO Auto-generated method stub
+			
 		}
 	}
 	
