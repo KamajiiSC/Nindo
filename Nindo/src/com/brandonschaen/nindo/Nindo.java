@@ -16,31 +16,23 @@ import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 public class Nindo extends Application{
-	private GameMenu newMenu;
+	private GameMenu mainMenu;
+	private static Text sceneTitle;
 
 	@Override
 	public void start( Stage primaryStage ) throws Exception {
 		Pane root = new Pane();
 		root.setPrefSize(1200, 800);
 		
-		Text sceneTitle = new Text();
-		newMenu = new GameMenu();
-
-		sceneTitle.setText("Nindo");
-		sceneTitle.getStyleClass().add("header-title");
-		
-		VBox mainMenu = new VBox(200);
-		mainMenu.getChildren().addAll(sceneTitle, newMenu);
-		mainMenu.setTranslateX(500);
-		mainMenu.setTranslateY(200);
-		mainMenu.setAlignment(Pos.CENTER);
-		
 		primaryStage.setTitle("Nindo");
+		
+		mainMenu = new GameMenu();
 		
 		root.getChildren().addAll(mainMenu);
 		
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add("MainScene.css");
+		
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
@@ -48,6 +40,9 @@ public class Nindo extends Application{
 	private static class GameMenu extends Parent {
 		public GameMenu() {
 			VBox gameMenu = new VBox(10);
+			sceneTitle = new Text();
+			sceneTitle.setText("Nindo");
+			sceneTitle.getStyleClass().add("header-title");
 			
 			gameMenu.setTranslateX(10);
 			gameMenu.setTranslateY(20);
@@ -58,11 +53,13 @@ public class Nindo extends Application{
 			
 			gameMenu.getChildren().addAll(newGame, loadGame, options);
 			
-			Rectangle bg = new Rectangle(800, 600);
-			bg.setFill(Color.GRAY);
-			bg.setOpacity(0.4);
+			VBox newMenu = new VBox(200);
+			newMenu.getChildren().addAll(sceneTitle, gameMenu);
+			newMenu.setTranslateX(500);
+			newMenu.setTranslateY(200);
+			newMenu.setAlignment(Pos.CENTER);
 			
-			getChildren().addAll(gameMenu);
+			getChildren().addAll(newMenu);
 		}
 	}
 	
