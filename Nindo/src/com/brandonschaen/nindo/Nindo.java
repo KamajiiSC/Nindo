@@ -13,6 +13,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class Nindo extends Application{
@@ -44,11 +45,22 @@ public class Nindo extends Application{
 	private static class CharacterCreator extends Parent {
 		public CharacterCreator() {
 			VBox creatorContainer = new VBox(10);
-			
 			Text introPrompt = new Text();
+			Text nameMessage = new Text();
+			nameMessage.setText("Hello, how are you");
+			nameMessage.getStyleClass().add("name-message");
 			introPrompt.setText("Welcome to the world of Nindo. \n To begin, what is your name?");
+			introPrompt.getStyleClass().add("intro-prompt");
 			
-			creatorContainer.getChildren().addAll(introPrompt);
+			TextField nameInput = new TextField();
+			nameInput.setOnAction(event -> {
+				 creatorContainer.getChildren().clear();
+				 creatorContainer.getChildren().addAll(nameMessage);
+			});
+
+			
+			creatorContainer.getChildren().addAll(introPrompt, nameInput);
+			
 			getChildren().addAll(creatorContainer);
 		}
 	}
