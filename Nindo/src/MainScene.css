@@ -1,6 +1,7 @@
 .header-title{
-	-fx-font-size: 36px;
+	-fx-font-size: 56px;
 }
 .menu-btn{
 	-fx-font-size: 24px;
+	-fx-fill: black;
 }
